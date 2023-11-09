@@ -183,6 +183,16 @@ class SendGridService extends NotificationService {
     return null
   }
 
+  getLocalizedSenderFrom(locale) {
+    if (this.options_.localization && this.options_.localization[locale]) {
+      if (this.options_.localization[locale].from) {
+        return this.options_.localization[locale].from;
+      }
+     return null;
+    }
+    return null;
+  }
+
   getTemplateId(event) {
     switch (event) {
       case "order.return_requested":
@@ -224,9 +234,11 @@ class SendGridService extends NotificationService {
     const data = await this.fetchData(event, eventData, attachmentGenerator)
 
     let templateId = this.getTemplateId(event)
+    let from = this.options_.from
 
     if (data.locale) {
       templateId = this.getLocalizedTemplateId(event, data.locale) || templateId
+      from = this.getLocalizedSenderFrom(data.locale) || from
     }
 
     if (!templateId) {
@@ -244,7 +256,7 @@ class SendGridService extends NotificationService {
 
     const sendOptions = {
       template_id: templateId,
-      from: this.options_.from,
+      from: from,
       to: data.email,
       dynamic_template_data: data,
       has_attachments: attachments?.length,
