@@ -248,6 +248,13 @@ class SendGridService extends NotificationService {
       )
     }
 
+    if (!from) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        `Sendgrid service: No sender from address was found`
+      )
+    }
+
     const attachments = await this.fetchAttachments(
       event,
       data,
