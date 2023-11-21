@@ -1,5 +1,54 @@
 # Change Log
 
+## 1.18.0
+
+### Minor Changes
+
+- [#5603](https://github.com/medusajs/medusa/pull/5603) [`cedab5833`](https://github.com/medusajs/medusa/commit/cedab583395275444001f0268e4b9ccab9b2b262) Thanks [@riqwan](https://github.com/riqwan)! - feat(workflows,medusa,utils): add medusa v2 feature flag
+
+- [`b53ab22a7`](https://github.com/medusajs/medusa/commit/b53ab22a7c47a1ff24bc0bdc5035c4229a7753af) Thanks [@olivermrbl](https://github.com/olivermrbl)! - chore(changesets): Minor-bump @medusajs/medusa
+
+### Patch Changes
+
+- [#5597](https://github.com/medusajs/medusa/pull/5597) [`2947f57db`](https://github.com/medusajs/medusa/commit/2947f57db1cabb343644bde379fa9ec54e9d7750) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(medusa): Update wrapHandler so that it is also able to catch errors for sync handlers
+
+- [#5624](https://github.com/medusajs/medusa/pull/5624) [`57573ed4d`](https://github.com/medusajs/medusa/commit/57573ed4d7d657d0d98bf00fb756cfbfb9cbcd8d) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - feat(medusa): Adds a new alternative syntax for creating Subscribers in Medusa, as well as adding a new API for creating scheduled jobs.
+
+- [#5599](https://github.com/medusajs/medusa/pull/5599) [`b3093c3e3`](https://github.com/medusajs/medusa/commit/b3093c3e3d64e4c024a04d76fb0f727c1c38108b) Thanks [@bqst](https://github.com/bqst)! - feat(medusa): Add `metadata` to Product Category
+
+- [#5635](https://github.com/medusajs/medusa/pull/5635) [`7226f5b69`](https://github.com/medusajs/medusa/commit/7226f5b6997a69bfcdbdd16ec16b209746023f0c) Thanks [@chemicalkosek](https://github.com/chemicalkosek)! - fix(medusa): Add missing import of promiseAll
+
+- [#5634](https://github.com/medusajs/medusa/pull/5634) [`52800710a`](https://github.com/medusajs/medusa/commit/52800710a294e32ebda6ba8a224fe85d289bfa0f) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(medusa): Ensure that errorHandler middleware is applied if no middleware config exists
+
+- Updated dependencies [[`cedab5833`](https://github.com/medusajs/medusa/commit/cedab583395275444001f0268e4b9ccab9b2b262)]:
+  - @medusajs/workflows@0.3.0
+  - @medusajs/utils@1.11.0
+
+## 1.17.4
+
+### Patch Changes
+
+- [#5594](https://github.com/medusajs/medusa/pull/5594) [`4ad66c179`](https://github.com/medusajs/medusa/commit/4ad66c1795af2b5e9f0a0e958447b688e525651a) Thanks [@adrien2p](https://github.com/adrien2p)! - fix(medusa): Load legacy modules entities
+
+- [#5582](https://github.com/medusajs/medusa/pull/5582) [`91615f9c4`](https://github.com/medusajs/medusa/commit/91615f9c459a2d8cb842561c5edb335680d30298) Thanks [@shahednasser](https://github.com/shahednasser)! - fix(@medusajs/client-types): Fix types and TSDocs
+  fix(medusa-react): Fix response type of Publishable API Key's list sales channels.
+  fix(@medusajs/medusa-js): Fix incorrect parameter and response types.
+  fix(@medusajs/medusa): Fix incorrect types and add TSDocs
+  fix(@medusajs/types): Fix incorrect types and add TSDocs
+
+- [#5510](https://github.com/medusajs/medusa/pull/5510) [`203e1fccb`](https://github.com/medusajs/medusa/commit/203e1fccb404a7408b53767456eee52ea719356c) Thanks [@adamlamaa](https://github.com/adamlamaa)! - feat(medusa): Include Product Collections in Seed command
+
+- [#5496](https://github.com/medusajs/medusa/pull/5496) [`154c9b43b`](https://github.com/medusajs/medusa/commit/154c9b43bde1fdff562aba9da8a79af2660b29b3) Thanks [@adrien2p](https://github.com/adrien2p)! - feat(medusa, modules-sdk, types, utils): Re work modules loading and remove legacy functions
+
+- [#5543](https://github.com/medusajs/medusa/pull/5543) [`f90ba0208`](https://github.com/medusajs/medusa/commit/f90ba02087778d8131aed3a59a6dc9c8ca3c95f4) Thanks [@adrien2p](https://github.com/adrien2p)! - feat(utils): Introduce promiseAll util
+
+- Updated dependencies [[`c39bf69a5`](https://github.com/medusajs/medusa/commit/c39bf69a5e5cae75d7fa12aa6022b10903557a32), [`154c9b43b`](https://github.com/medusajs/medusa/commit/154c9b43bde1fdff562aba9da8a79af2660b29b3)]:
+  - @medusajs/modules-sdk@1.12.3
+  - @medusajs/orchestration@0.4.4
+  - @medusajs/utils@1.10.5
+  - @medusajs/workflows@0.2.5
+  - @medusajs/link-modules@0.2.3
+
 ## 1.17.3
 
 ### Patch Changes

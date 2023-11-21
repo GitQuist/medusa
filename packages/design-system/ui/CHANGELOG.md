@@ -1,5 +1,17 @@
 # @medusajs/ui
 
+## 2.2.2
+
+### Patch Changes
+
+- [#5640](https://github.com/medusajs/medusa/pull/5640) [`a67a8e7e9`](https://github.com/medusajs/medusa/commit/a67a8e7e90f35636c8d99858fc5b19358df4c174) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(ui): Fix the width of line numbers in the CodeBlock component, such that they are always the same width as the widest line number.
+
+## 2.2.1
+
+### Patch Changes
+
+- [#5596](https://github.com/medusajs/medusa/pull/5596) [`e3f1da92d`](https://github.com/medusajs/medusa/commit/e3f1da92db1a5bb07ae8d79a90f0d1d04f9bfee3) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-ui,ui): Align @types/react versions
+
 ## 2.2.0
 
 ### Minor Changes

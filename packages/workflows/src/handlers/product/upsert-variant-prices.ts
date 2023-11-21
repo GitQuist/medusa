@@ -1,5 +1,5 @@
 import { PricingTypes } from "@medusajs/types"
-
+import { MedusaV2Flag } from "@medusajs/utils"
 import { WorkflowArguments } from "../../helper"
 
 type VariantPrice = {
@@ -23,14 +23,12 @@ type HandlerInput = {
 
 export async function upsertVariantPrices({
   container,
-  context,
   data,
 }: WorkflowArguments<HandlerInput>) {
   const { variantPricesMap } = data
-
   const featureFlagRouter = container.resolve("featureFlagRouter")
-  
-  if (!featureFlagRouter.isFeatureEnabled("isolate_pricing_domain")) {
+
+  if (!featureFlagRouter.isFeatureEnabled(MedusaV2Flag.key)) {
     return {
       createdLinks: [],
       originalMoneyAmounts: [],
@@ -129,16 +127,16 @@ export async function upsertVariantPrices({
       priceSetId = createdPriceSet?.id
 
       createdPriceSets.push(createdPriceSet)
-    }
 
-    linksToCreate.push({
-      productService: {
-        variant_id: variantId,
-      },
-      pricingService: {
-        price_set_id: priceSetId,
-      },
-    })
+      linksToCreate.push({
+        productService: {
+          variant_id: variantId,
+        },
+        pricingService: {
+          price_set_id: priceSetId,
+        },
+      })
+    }
   }
 
   const createdLinks = await remoteLink.create(linksToCreate)

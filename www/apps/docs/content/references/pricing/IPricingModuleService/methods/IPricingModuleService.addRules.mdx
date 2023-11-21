@@ -13,14 +13,14 @@ import ParameterTypes from "@site/src/components/ParameterTypes"
 
 This documentation provides a reference to the `addRules` method. This belongs to the Pricing Module.
 
-## addRules(data, sharedContext?): Promise<PriceSetDTO\>
+## addRules(data, sharedContext?): Promise&#60;[PriceSetDTO](../../interfaces/PriceSetDTO.mdx)&#62;
 
 This method adds rules to a price set.
 
 ### Example
 
 ```ts
-import { 
+import {
   initialize as initializePricingModule,
 } from "@medusajs/pricing"
 
@@ -43,10 +43,11 @@ async function addRulesToPriceSet (priceSetId: string) {
 <ParameterTypes parameters={[
   {
     "name": "data",
-    "type": "[`AddRulesDTO`](../../interfaces/AddRulesDTO.mdx)",
+    "type": "[AddRulesDTO](../../interfaces/AddRulesDTO.mdx)",
     "description": "The data defining the price set to add the rules to, along with the rules to add.",
     "optional": false,
     "defaultValue": "",
+    "expandable": false,
     "children": [
       {
         "name": "priceSetId",
@@ -54,31 +55,45 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "The ID of the price set to add the rules to.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "rules",
-        "type": "{ `attribute`: `string`  }[]",
-        "description": "The rules to add to a price set. The value of `attribute` is the value of the rule's `rule_attribute` attribute.",
+        "type": "``{ attribute: string  }``[]",
+        "description": "The rules to add to a price set.",
         "optional": false,
         "defaultValue": "",
-        "children": []
+        "expandable": false,
+        "children": [
+          {
+            "name": "attribute",
+            "type": "`string`",
+            "description": "The value of the rule's `rule_attribute` attribute.",
+            "optional": false,
+            "defaultValue": "",
+            "expandable": false,
+            "children": []
+          }
+        ]
       }
     ]
   },
   {
     "name": "sharedContext",
-    "type": "[`Context`](../../interfaces/Context.mdx)",
+    "type": "[Context](../../interfaces/Context.mdx)",
     "description": "A context used to share resources, such as transaction manager, between the application and the module.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": [
       {
         "name": "enableNestedTransactions",
         "type": "`boolean`",
-        "description": "a boolean value indicating whether nested transactions are enabled.",
+        "description": "A boolean value indicating whether nested transactions are enabled.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -87,6 +102,7 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "A string indicating the isolation level of the context. Possible values are `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, or `SERIALIZABLE`.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -95,14 +111,16 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "An instance of a manager, typically an entity manager, of type `TManager`, which is a typed parameter passed to the context to specify the type of the `manager`.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "transactionId",
         "type": "`string`",
-        "description": "a string indicating the ID of the current transaction.",
+        "description": "A string indicating the ID of the current transaction.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -111,6 +129,7 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "An instance of a transaction manager of type `TManager`, which is a typed parameter passed to the context to specify the type of the `transactionManager`.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
@@ -122,10 +141,11 @@ async function addRulesToPriceSet (priceSetId: string) {
 <ParameterTypes parameters={[
   {
     "name": "Promise",
-    "type": "`Promise`<[`PriceSetDTO`](../../interfaces/PriceSetDTO.mdx)\\>",
+    "type": "Promise&#60;[PriceSetDTO](../../interfaces/PriceSetDTO.mdx)&#62;",
     "optional": false,
     "defaultValue": "",
     "description": "The price set that the rules were added to.",
+    "expandable": false,
     "children": [
       {
         "name": "id",
@@ -133,14 +153,16 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "The ID of the price set.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "money_amounts",
-        "type": "[`MoneyAmountDTO`](../../interfaces/MoneyAmountDTO.mdx)[]",
+        "type": "[MoneyAmountDTO](../../interfaces/MoneyAmountDTO.mdx)[]",
         "description": "The prices that belong to this price set.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": [
           {
             "name": "amount",
@@ -148,14 +170,16 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The price of this money amount.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "currency",
-            "type": "[`CurrencyDTO`](../../interfaces/CurrencyDTO.mdx)",
-            "description": "The money amount's currency. Since this is a relation, it will only be retrieved if it's passed to the `relations` array of the find-configuration options.",
+            "type": "[CurrencyDTO](../../interfaces/CurrencyDTO.mdx)",
+            "description": "The money amount's currency.",
             "optional": true,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -164,6 +188,7 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The currency code of this money amount.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -172,6 +197,7 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The ID of the money amount.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -180,6 +206,7 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The maximum quantity required to be purchased for this price to be applied.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -188,16 +215,27 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The minimum quantity required to be purchased for this price to be applied.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
+            "children": []
+          },
+          {
+            "name": "price_set_money_amount",
+            "type": "[PriceSetMoneyAmountDTO](../../interfaces/PriceSetMoneyAmountDTO.mdx)",
+            "description": "The details of the relation between the money amount and its associated price set.",
+            "optional": true,
+            "defaultValue": "",
+            "expandable": true,
             "children": []
           }
         ]
       },
       {
         "name": "rule_types",
-        "type": "[`RuleTypeDTO`](../../interfaces/RuleTypeDTO.mdx)[]",
+        "type": "[RuleTypeDTO](../../interfaces/RuleTypeDTO.mdx)[]",
         "description": "The rule types applied on this price set.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": [
           {
             "name": "default_priority",
@@ -205,6 +243,7 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The priority of the rule type. This is useful when calculating the price of a price set, and multiple rules satisfy the provided context. The higher the value, the higher the priority of the rule type.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -213,6 +252,7 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The ID of the rule type.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -221,14 +261,16 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The display name of the rule type.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "rule_attribute",
             "type": "`string`",
-            "description": "The unique name used to later identify the rule_attribute. For example, it can be used in the `context` parameter of the `calculatePrices` method to specify a rule for calculating the price.",
+            "description": "The unique name used to later identify the rule\\_attribute. For example, it can be used in the `context` parameter of the `calculatePrices` method to specify a rule for calculating the price.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           }
         ]
@@ -237,14 +279,14 @@ async function addRulesToPriceSet (priceSetId: string) {
   }
 ]} />
 
-## addRules(data, sharedContext?): Promise<PriceSetDTO[]\>
+## addRules(data, sharedContext?): Promise&#60;[PriceSetDTO](../../interfaces/PriceSetDTO.mdx)[]&#62;
 
 This method adds rules to multiple price sets.
 
 ### Example
 
 ```ts
-import { 
+import {
   initialize as initializePricingModule,
 } from "@medusajs/pricing"
 
@@ -267,10 +309,11 @@ async function addRulesToPriceSet (priceSetId: string) {
 <ParameterTypes parameters={[
   {
     "name": "data",
-    "type": "[`AddRulesDTO`](../../interfaces/AddRulesDTO.mdx)[]",
+    "type": "[AddRulesDTO](../../interfaces/AddRulesDTO.mdx)[]",
     "description": "The data defining the rules to add per price set.",
     "optional": false,
     "defaultValue": "",
+    "expandable": false,
     "children": [
       {
         "name": "priceSetId",
@@ -278,31 +321,45 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "The ID of the price set to add the rules to.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "rules",
-        "type": "{ `attribute`: `string`  }[]",
-        "description": "The rules to add to a price set. The value of `attribute` is the value of the rule's `rule_attribute` attribute.",
+        "type": "``{ attribute: string  }``[]",
+        "description": "The rules to add to a price set.",
         "optional": false,
         "defaultValue": "",
-        "children": []
+        "expandable": false,
+        "children": [
+          {
+            "name": "attribute",
+            "type": "`string`",
+            "description": "The value of the rule's `rule_attribute` attribute.",
+            "optional": false,
+            "defaultValue": "",
+            "expandable": false,
+            "children": []
+          }
+        ]
       }
     ]
   },
   {
     "name": "sharedContext",
-    "type": "[`Context`](../../interfaces/Context.mdx)",
+    "type": "[Context](../../interfaces/Context.mdx)",
     "description": "A context used to share resources, such as transaction manager, between the application and the module.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": [
       {
         "name": "enableNestedTransactions",
         "type": "`boolean`",
-        "description": "a boolean value indicating whether nested transactions are enabled.",
+        "description": "A boolean value indicating whether nested transactions are enabled.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -311,6 +368,7 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "A string indicating the isolation level of the context. Possible values are `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, or `SERIALIZABLE`.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -319,14 +377,16 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "An instance of a manager, typically an entity manager, of type `TManager`, which is a typed parameter passed to the context to specify the type of the `manager`.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "transactionId",
         "type": "`string`",
-        "description": "a string indicating the ID of the current transaction.",
+        "description": "A string indicating the ID of the current transaction.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -335,6 +395,7 @@ async function addRulesToPriceSet (priceSetId: string) {
         "description": "An instance of a transaction manager of type `TManager`, which is a typed parameter passed to the context to specify the type of the `transactionManager`.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
@@ -346,17 +407,19 @@ async function addRulesToPriceSet (priceSetId: string) {
 <ParameterTypes parameters={[
   {
     "name": "Promise",
-    "type": "`Promise`<[`PriceSetDTO`](../../interfaces/PriceSetDTO.mdx)[]\\>",
+    "type": "Promise&#60;[PriceSetDTO](../../interfaces/PriceSetDTO.mdx)[]&#62;",
     "optional": false,
     "defaultValue": "",
     "description": "The list of the price sets that the rules were added to.",
+    "expandable": false,
     "children": [
       {
         "name": "PriceSetDTO[]",
-        "type": "[`PriceSetDTO`](../../interfaces/PriceSetDTO.mdx)[]",
+        "type": "[PriceSetDTO](../../interfaces/PriceSetDTO.mdx)[]",
         "optional": false,
         "defaultValue": "",
         "description": "",
+        "expandable": false,
         "children": [
           {
             "name": "id",
@@ -364,22 +427,25 @@ async function addRulesToPriceSet (priceSetId: string) {
             "description": "The ID of the price set.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "money_amounts",
-            "type": "[`MoneyAmountDTO`](../../interfaces/MoneyAmountDTO.mdx)[]",
+            "type": "[MoneyAmountDTO](../../interfaces/MoneyAmountDTO.mdx)[]",
             "description": "The prices that belong to this price set.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "rule_types",
-            "type": "[`RuleTypeDTO`](../../interfaces/RuleTypeDTO.mdx)[]",
+            "type": "[RuleTypeDTO](../../interfaces/RuleTypeDTO.mdx)[]",
             "description": "The rule types applied on this price set.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           }
         ]

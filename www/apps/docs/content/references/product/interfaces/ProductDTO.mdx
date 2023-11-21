@@ -13,18 +13,20 @@ A product's data.
 <ParameterTypes parameters={[
   {
     "name": "categories",
-    "type": "``null`` \\| [`ProductCategoryDTO`](ProductCategoryDTO.mdx)[]",
-    "description": "The associated product categories. It may only be available if the `categories` relation is expanded.",
+    "type": "`null` \\| [ProductCategoryDTO](ProductCategoryDTO.mdx)[]",
+    "description": "The associated product categories.",
     "optional": true,
     "defaultValue": "",
+    "expandable": true,
     "children": []
   },
   {
     "name": "collection",
-    "type": "[`ProductCollectionDTO`](ProductCollectionDTO.mdx)",
-    "description": "The associated product collection. It may only be available if the `collection` relation is expanded.",
+    "type": "[ProductCollectionDTO](ProductCollectionDTO.mdx)",
+    "description": "The associated product collection.",
     "optional": false,
     "defaultValue": "",
+    "expandable": true,
     "children": [
       {
         "name": "deleted_at",
@@ -32,6 +34,7 @@ A product's data.
         "description": "When the product collection was deleted.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -40,6 +43,7 @@ A product's data.
         "description": "The handle of the product collection. The handle can be used to create slug URL paths.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -48,37 +52,42 @@ A product's data.
         "description": "The ID of the product collection.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "metadata",
-        "type": "``null`` \\| Record<`string`, `unknown`\\>",
+        "type": "`null` \\| `Record<string, unknown>`",
         "description": "Holds custom data in key-value pairs.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "products",
-        "type": "[`ProductDTO`](ProductDTO.mdx)[]",
-        "description": "The associated products. It may only be available if the `products` relation is expanded.",
+        "type": "[ProductDTO](ProductDTO.mdx)[]",
+        "description": "The associated products.",
         "optional": true,
         "defaultValue": "",
+        "expandable": true,
         "children": [
           {
             "name": "categories",
-            "type": "``null`` \\| [`ProductCategoryDTO`](ProductCategoryDTO.mdx)[]",
-            "description": "The associated product categories. It may only be available if the `categories` relation is expanded.",
+            "type": "`null` \\| [ProductCategoryDTO](ProductCategoryDTO.mdx)[]",
+            "description": "The associated product categories.",
             "optional": true,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "collection",
-            "type": "[`ProductCollectionDTO`](ProductCollectionDTO.mdx)",
-            "description": "The associated product collection. It may only be available if the `collection` relation is expanded.",
+            "type": "[ProductCollectionDTO](ProductCollectionDTO.mdx)",
+            "description": "The associated product collection.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -87,6 +96,7 @@ A product's data.
             "description": "When the product was created.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -95,14 +105,16 @@ A product's data.
             "description": "When the product was deleted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "description",
-            "type": "``null`` \\| `string`",
-            "description": "The description of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The description of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -111,38 +123,43 @@ A product's data.
             "description": "Whether the product can be discounted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "external_id",
-            "type": "``null`` \\| `string`",
+            "type": "`null` \\| `string`",
             "description": "The ID of the product in an external system. This is useful if you're integrating the product with a third-party service and want to maintain a reference to the ID in the integrated service.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "handle",
-            "type": "``null`` \\| `string`",
-            "description": "The handle of the product. The handle can be used to create slug URL paths. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The handle of the product. The handle can be used to create slug URL paths.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "height",
-            "type": "``null`` \\| `number`",
-            "description": "The height of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The height of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "hs_code",
-            "type": "``null`` \\| `string`",
-            "description": "The HS Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The HS Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -151,14 +168,16 @@ A product's data.
             "description": "The ID of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "images",
-            "type": "[`ProductImageDTO`](ProductImageDTO.mdx)[]",
-            "description": "The associated product images. It may only be available if the `images` relation is expanded.",
+            "type": "[ProductImageDTO](ProductImageDTO.mdx)[]",
+            "description": "The associated product images.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -167,86 +186,97 @@ A product's data.
             "description": "Whether the product is a gift card.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "length",
-            "type": "``null`` \\| `number`",
-            "description": "The length of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The length of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "material",
-            "type": "``null`` \\| `string`",
-            "description": "The material of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The material of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "metadata",
-            "type": "Record<`string`, `unknown`\\>",
-            "description": "",
+            "type": "`Record<string, unknown>`",
+            "description": "Holds custom data in key-value pairs.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "mid_code",
-            "type": "``null`` \\| `string`",
-            "description": "The MID Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The MID Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "options",
-            "type": "[`ProductOptionDTO`](ProductOptionDTO.mdx)[]",
-            "description": "The associated product options. It may only be available if the `options` relation is expanded.",
+            "type": "[ProductOptionDTO](ProductOptionDTO.mdx)[]",
+            "description": "The associated product options.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "origin_country",
-            "type": "``null`` \\| `string`",
-            "description": "The origin country of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The origin country of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "status",
-            "type": "[`ProductStatus`](../enums/ProductStatus.mdx)",
-            "description": "The status of the product. Its value can be one of the values of the enum [ProductStatus](../enums/ProductStatus.mdx).",
+            "type": "[ProductStatus](../enums/ProductStatus.mdx)",
+            "description": "The status of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "subtitle",
-            "type": "``null`` \\| `string`",
-            "description": "The subttle of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The subttle of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "tags",
-            "type": "[`ProductTagDTO`](ProductTagDTO.mdx)[]",
-            "description": "The associated product tags. It may only be available if the `tags` relation is expanded.",
+            "type": "[ProductTagDTO](ProductTagDTO.mdx)[]",
+            "description": "The associated product tags.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "thumbnail",
-            "type": "``null`` \\| `string`",
-            "description": "The URL of the product's thumbnail. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The URL of the product's thumbnail.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -255,14 +285,16 @@ A product's data.
             "description": "The title of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "type",
-            "type": "[`ProductTypeDTO`](ProductTypeDTO.mdx)[]",
-            "description": "The associated product type. It may only be available if the `type` relation is expanded.",
+            "type": "[ProductTypeDTO](ProductTypeDTO.mdx)[]",
+            "description": "The associated product type.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -271,30 +303,34 @@ A product's data.
             "description": "When the product was updated.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "variants",
-            "type": "[`ProductVariantDTO`](ProductVariantDTO.mdx)[]",
-            "description": "The associated product variants. It may only be available if the `variants` relation is expanded.",
+            "type": "[ProductVariantDTO](ProductVariantDTO.mdx)[]",
+            "description": "The associated product variants.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "weight",
-            "type": "``null`` \\| `number`",
-            "description": "The weight of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The weight of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "width",
-            "type": "``null`` \\| `number`",
-            "description": "",
+            "type": "`null` \\| `number`",
+            "description": "The width of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           }
         ]
@@ -305,6 +341,7 @@ A product's data.
         "description": "The title of the product collection.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
@@ -315,6 +352,7 @@ A product's data.
     "description": "When the product was created.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -323,14 +361,16 @@ A product's data.
     "description": "When the product was deleted.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "description",
-    "type": "``null`` \\| `string`",
-    "description": "The description of the product. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The description of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -339,38 +379,43 @@ A product's data.
     "description": "Whether the product can be discounted.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "external_id",
-    "type": "``null`` \\| `string`",
+    "type": "`null` \\| `string`",
     "description": "The ID of the product in an external system. This is useful if you're integrating the product with a third-party service and want to maintain a reference to the ID in the integrated service.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "handle",
-    "type": "``null`` \\| `string`",
-    "description": "The handle of the product. The handle can be used to create slug URL paths. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The handle of the product. The handle can be used to create slug URL paths.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "height",
-    "type": "``null`` \\| `number`",
-    "description": "The height of the product. It can possibly be `null`.",
+    "type": "`null` \\| `number`",
+    "description": "The height of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "hs_code",
-    "type": "``null`` \\| `string`",
-    "description": "The HS Code of the product. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The HS Code of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -379,14 +424,16 @@ A product's data.
     "description": "The ID of the product.",
     "optional": false,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "images",
-    "type": "[`ProductImageDTO`](ProductImageDTO.mdx)[]",
-    "description": "The associated product images. It may only be available if the `images` relation is expanded.",
+    "type": "[ProductImageDTO](ProductImageDTO.mdx)[]",
+    "description": "The associated product images.",
     "optional": false,
     "defaultValue": "",
+    "expandable": true,
     "children": [
       {
         "name": "deleted_at",
@@ -394,6 +441,7 @@ A product's data.
         "description": "When the product image was deleted.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -402,14 +450,16 @@ A product's data.
         "description": "The ID of the product image.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "metadata",
-        "type": "``null`` \\| Record<`string`, `unknown`\\>",
+        "type": "`null` \\| `Record<string, unknown>`",
         "description": "Holds custom data in key-value pairs.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -418,6 +468,7 @@ A product's data.
         "description": "The URL of the product image.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
@@ -428,46 +479,52 @@ A product's data.
     "description": "Whether the product is a gift card.",
     "optional": false,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "length",
-    "type": "``null`` \\| `number`",
-    "description": "The length of the product. It can possibly be `null`.",
+    "type": "`null` \\| `number`",
+    "description": "The length of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "material",
-    "type": "``null`` \\| `string`",
-    "description": "The material of the product. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The material of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "metadata",
-    "type": "Record<`string`, `unknown`\\>",
-    "description": "",
+    "type": "`Record<string, unknown>`",
+    "description": "Holds custom data in key-value pairs.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "mid_code",
-    "type": "``null`` \\| `string`",
-    "description": "The MID Code of the product. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The MID Code of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "options",
-    "type": "[`ProductOptionDTO`](ProductOptionDTO.mdx)[]",
-    "description": "The associated product options. It may only be available if the `options` relation is expanded.",
+    "type": "[ProductOptionDTO](ProductOptionDTO.mdx)[]",
+    "description": "The associated product options.",
     "optional": false,
     "defaultValue": "",
+    "expandable": true,
     "children": [
       {
         "name": "deleted_at",
@@ -475,6 +532,7 @@ A product's data.
         "description": "When the product option was deleted.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -483,37 +541,42 @@ A product's data.
         "description": "The ID of the product option.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "metadata",
-        "type": "``null`` \\| Record<`string`, `unknown`\\>",
+        "type": "`null` \\| `Record<string, unknown>`",
         "description": "Holds custom data in key-value pairs.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "product",
-        "type": "[`ProductDTO`](ProductDTO.mdx)",
-        "description": "The associated product. It may only be available if the `product` relation is expanded.",
+        "type": "[ProductDTO](ProductDTO.mdx)",
+        "description": "The associated product.",
         "optional": false,
         "defaultValue": "",
+        "expandable": true,
         "children": [
           {
             "name": "categories",
-            "type": "``null`` \\| [`ProductCategoryDTO`](ProductCategoryDTO.mdx)[]",
-            "description": "The associated product categories. It may only be available if the `categories` relation is expanded.",
+            "type": "`null` \\| [ProductCategoryDTO](ProductCategoryDTO.mdx)[]",
+            "description": "The associated product categories.",
             "optional": true,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "collection",
-            "type": "[`ProductCollectionDTO`](ProductCollectionDTO.mdx)",
-            "description": "The associated product collection. It may only be available if the `collection` relation is expanded.",
+            "type": "[ProductCollectionDTO](ProductCollectionDTO.mdx)",
+            "description": "The associated product collection.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -522,6 +585,7 @@ A product's data.
             "description": "When the product was created.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -530,14 +594,16 @@ A product's data.
             "description": "When the product was deleted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "description",
-            "type": "``null`` \\| `string`",
-            "description": "The description of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The description of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -546,38 +612,43 @@ A product's data.
             "description": "Whether the product can be discounted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "external_id",
-            "type": "``null`` \\| `string`",
+            "type": "`null` \\| `string`",
             "description": "The ID of the product in an external system. This is useful if you're integrating the product with a third-party service and want to maintain a reference to the ID in the integrated service.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "handle",
-            "type": "``null`` \\| `string`",
-            "description": "The handle of the product. The handle can be used to create slug URL paths. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The handle of the product. The handle can be used to create slug URL paths.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "height",
-            "type": "``null`` \\| `number`",
-            "description": "The height of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The height of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "hs_code",
-            "type": "``null`` \\| `string`",
-            "description": "The HS Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The HS Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -586,14 +657,16 @@ A product's data.
             "description": "The ID of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "images",
-            "type": "[`ProductImageDTO`](ProductImageDTO.mdx)[]",
-            "description": "The associated product images. It may only be available if the `images` relation is expanded.",
+            "type": "[ProductImageDTO](ProductImageDTO.mdx)[]",
+            "description": "The associated product images.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -602,86 +675,97 @@ A product's data.
             "description": "Whether the product is a gift card.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "length",
-            "type": "``null`` \\| `number`",
-            "description": "The length of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The length of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "material",
-            "type": "``null`` \\| `string`",
-            "description": "The material of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The material of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "metadata",
-            "type": "Record<`string`, `unknown`\\>",
-            "description": "",
+            "type": "`Record<string, unknown>`",
+            "description": "Holds custom data in key-value pairs.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "mid_code",
-            "type": "``null`` \\| `string`",
-            "description": "The MID Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The MID Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "options",
-            "type": "[`ProductOptionDTO`](ProductOptionDTO.mdx)[]",
-            "description": "The associated product options. It may only be available if the `options` relation is expanded.",
+            "type": "[ProductOptionDTO](ProductOptionDTO.mdx)[]",
+            "description": "The associated product options.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "origin_country",
-            "type": "``null`` \\| `string`",
-            "description": "The origin country of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The origin country of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "status",
-            "type": "[`ProductStatus`](../enums/ProductStatus.mdx)",
-            "description": "The status of the product. Its value can be one of the values of the enum [ProductStatus](../enums/ProductStatus.mdx).",
+            "type": "[ProductStatus](../enums/ProductStatus.mdx)",
+            "description": "The status of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "subtitle",
-            "type": "``null`` \\| `string`",
-            "description": "The subttle of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The subttle of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "tags",
-            "type": "[`ProductTagDTO`](ProductTagDTO.mdx)[]",
-            "description": "The associated product tags. It may only be available if the `tags` relation is expanded.",
+            "type": "[ProductTagDTO](ProductTagDTO.mdx)[]",
+            "description": "The associated product tags.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "thumbnail",
-            "type": "``null`` \\| `string`",
-            "description": "The URL of the product's thumbnail. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The URL of the product's thumbnail.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -690,14 +774,16 @@ A product's data.
             "description": "The title of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "type",
-            "type": "[`ProductTypeDTO`](ProductTypeDTO.mdx)[]",
-            "description": "The associated product type. It may only be available if the `type` relation is expanded.",
+            "type": "[ProductTypeDTO](ProductTypeDTO.mdx)[]",
+            "description": "The associated product type.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -706,30 +792,34 @@ A product's data.
             "description": "When the product was updated.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "variants",
-            "type": "[`ProductVariantDTO`](ProductVariantDTO.mdx)[]",
-            "description": "The associated product variants. It may only be available if the `variants` relation is expanded.",
+            "type": "[ProductVariantDTO](ProductVariantDTO.mdx)[]",
+            "description": "The associated product variants.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "weight",
-            "type": "``null`` \\| `number`",
-            "description": "The weight of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The weight of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "width",
-            "type": "``null`` \\| `number`",
-            "description": "",
+            "type": "`null` \\| `number`",
+            "description": "The width of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           }
         ]
@@ -740,14 +830,16 @@ A product's data.
         "description": "The title of the product option.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "values",
-        "type": "[`ProductOptionValueDTO`](ProductOptionValueDTO.mdx)[]",
-        "description": "The associated product option values. It may only be available if the `values` relation is expanded.",
+        "type": "[ProductOptionValueDTO](ProductOptionValueDTO.mdx)[]",
+        "description": "The associated product option values.",
         "optional": false,
         "defaultValue": "",
+        "expandable": true,
         "children": [
           {
             "name": "deleted_at",
@@ -755,6 +847,7 @@ A product's data.
             "description": "When the product option value was deleted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -763,22 +856,25 @@ A product's data.
             "description": "The ID of the product option value.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "metadata",
-            "type": "``null`` \\| Record<`string`, `unknown`\\>",
+            "type": "`null` \\| `Record<string, unknown>`",
             "description": "Holds custom data in key-value pairs.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "option",
-            "type": "[`ProductOptionDTO`](ProductOptionDTO.mdx)",
-            "description": "The associated product option. It may only be available if the `option` relation is expanded.",
+            "type": "[ProductOptionDTO](ProductOptionDTO.mdx)",
+            "description": "The associated product option.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -787,14 +883,16 @@ A product's data.
             "description": "The value of the product option value.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "variant",
-            "type": "[`ProductVariantDTO`](ProductVariantDTO.mdx)",
-            "description": "The associated product variant. It may only be available if the `variant` relation is expanded.",
+            "type": "[ProductVariantDTO](ProductVariantDTO.mdx)",
+            "description": "The associated product variant.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           }
         ]
@@ -803,67 +901,75 @@ A product's data.
   },
   {
     "name": "origin_country",
-    "type": "``null`` \\| `string`",
-    "description": "The origin country of the product. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The origin country of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "status",
-    "type": "[`ProductStatus`](../enums/ProductStatus.mdx)",
-    "description": "The status of the product. Its value can be one of the values of the enum [ProductStatus](../enums/ProductStatus.mdx).",
+    "type": "[ProductStatus](../enums/ProductStatus.mdx)",
+    "description": "The status of the product.",
     "optional": false,
     "defaultValue": "",
+    "expandable": false,
     "children": [
       {
         "name": "DRAFT",
-        "type": "``\"draft\"``",
+        "type": "`\"draft\"`",
         "description": "",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "PROPOSED",
-        "type": "``\"proposed\"``",
+        "type": "`\"proposed\"`",
         "description": "",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "PUBLISHED",
-        "type": "``\"published\"``",
+        "type": "`\"published\"`",
         "description": "",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "REJECTED",
-        "type": "``\"rejected\"``",
+        "type": "`\"rejected\"`",
         "description": "",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
   },
   {
     "name": "subtitle",
-    "type": "``null`` \\| `string`",
-    "description": "The subttle of the product. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The subttle of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "tags",
-    "type": "[`ProductTagDTO`](ProductTagDTO.mdx)[]",
-    "description": "The associated product tags. It may only be available if the `tags` relation is expanded.",
+    "type": "[ProductTagDTO](ProductTagDTO.mdx)[]",
+    "description": "The associated product tags.",
     "optional": false,
     "defaultValue": "",
+    "expandable": true,
     "children": [
       {
         "name": "id",
@@ -871,37 +977,42 @@ A product's data.
         "description": "The ID of the product tag.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "metadata",
-        "type": "``null`` \\| Record<`string`, `unknown`\\>",
+        "type": "`null` \\| `Record<string, unknown>`",
         "description": "Holds custom data in key-value pairs.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "products",
-        "type": "[`ProductDTO`](ProductDTO.mdx)[]",
-        "description": "The associated products. It may only be available if the `products` relation is expanded.",
+        "type": "[ProductDTO](ProductDTO.mdx)[]",
+        "description": "The associated products.",
         "optional": true,
         "defaultValue": "",
+        "expandable": true,
         "children": [
           {
             "name": "categories",
-            "type": "``null`` \\| [`ProductCategoryDTO`](ProductCategoryDTO.mdx)[]",
-            "description": "The associated product categories. It may only be available if the `categories` relation is expanded.",
+            "type": "`null` \\| [ProductCategoryDTO](ProductCategoryDTO.mdx)[]",
+            "description": "The associated product categories.",
             "optional": true,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "collection",
-            "type": "[`ProductCollectionDTO`](ProductCollectionDTO.mdx)",
-            "description": "The associated product collection. It may only be available if the `collection` relation is expanded.",
+            "type": "[ProductCollectionDTO](ProductCollectionDTO.mdx)",
+            "description": "The associated product collection.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -910,6 +1021,7 @@ A product's data.
             "description": "When the product was created.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -918,14 +1030,16 @@ A product's data.
             "description": "When the product was deleted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "description",
-            "type": "``null`` \\| `string`",
-            "description": "The description of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The description of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -934,38 +1048,43 @@ A product's data.
             "description": "Whether the product can be discounted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "external_id",
-            "type": "``null`` \\| `string`",
+            "type": "`null` \\| `string`",
             "description": "The ID of the product in an external system. This is useful if you're integrating the product with a third-party service and want to maintain a reference to the ID in the integrated service.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "handle",
-            "type": "``null`` \\| `string`",
-            "description": "The handle of the product. The handle can be used to create slug URL paths. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The handle of the product. The handle can be used to create slug URL paths.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "height",
-            "type": "``null`` \\| `number`",
-            "description": "The height of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The height of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "hs_code",
-            "type": "``null`` \\| `string`",
-            "description": "The HS Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The HS Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -974,14 +1093,16 @@ A product's data.
             "description": "The ID of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "images",
-            "type": "[`ProductImageDTO`](ProductImageDTO.mdx)[]",
-            "description": "The associated product images. It may only be available if the `images` relation is expanded.",
+            "type": "[ProductImageDTO](ProductImageDTO.mdx)[]",
+            "description": "The associated product images.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -990,86 +1111,97 @@ A product's data.
             "description": "Whether the product is a gift card.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "length",
-            "type": "``null`` \\| `number`",
-            "description": "The length of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The length of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "material",
-            "type": "``null`` \\| `string`",
-            "description": "The material of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The material of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "metadata",
-            "type": "Record<`string`, `unknown`\\>",
-            "description": "",
+            "type": "`Record<string, unknown>`",
+            "description": "Holds custom data in key-value pairs.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "mid_code",
-            "type": "``null`` \\| `string`",
-            "description": "The MID Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The MID Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "options",
-            "type": "[`ProductOptionDTO`](ProductOptionDTO.mdx)[]",
-            "description": "The associated product options. It may only be available if the `options` relation is expanded.",
+            "type": "[ProductOptionDTO](ProductOptionDTO.mdx)[]",
+            "description": "The associated product options.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "origin_country",
-            "type": "``null`` \\| `string`",
-            "description": "The origin country of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The origin country of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "status",
-            "type": "[`ProductStatus`](../enums/ProductStatus.mdx)",
-            "description": "The status of the product. Its value can be one of the values of the enum [ProductStatus](../enums/ProductStatus.mdx).",
+            "type": "[ProductStatus](../enums/ProductStatus.mdx)",
+            "description": "The status of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "subtitle",
-            "type": "``null`` \\| `string`",
-            "description": "The subttle of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The subttle of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "tags",
-            "type": "[`ProductTagDTO`](ProductTagDTO.mdx)[]",
-            "description": "The associated product tags. It may only be available if the `tags` relation is expanded.",
+            "type": "[ProductTagDTO](ProductTagDTO.mdx)[]",
+            "description": "The associated product tags.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "thumbnail",
-            "type": "``null`` \\| `string`",
-            "description": "The URL of the product's thumbnail. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The URL of the product's thumbnail.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -1078,14 +1210,16 @@ A product's data.
             "description": "The title of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "type",
-            "type": "[`ProductTypeDTO`](ProductTypeDTO.mdx)[]",
-            "description": "The associated product type. It may only be available if the `type` relation is expanded.",
+            "type": "[ProductTypeDTO](ProductTypeDTO.mdx)[]",
+            "description": "The associated product type.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -1094,30 +1228,34 @@ A product's data.
             "description": "When the product was updated.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "variants",
-            "type": "[`ProductVariantDTO`](ProductVariantDTO.mdx)[]",
-            "description": "The associated product variants. It may only be available if the `variants` relation is expanded.",
+            "type": "[ProductVariantDTO](ProductVariantDTO.mdx)[]",
+            "description": "The associated product variants.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "weight",
-            "type": "``null`` \\| `number`",
-            "description": "The weight of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The weight of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "width",
-            "type": "``null`` \\| `number`",
-            "description": "",
+            "type": "`null` \\| `number`",
+            "description": "The width of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           }
         ]
@@ -1128,16 +1266,18 @@ A product's data.
         "description": "The value of the product tag.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
   },
   {
     "name": "thumbnail",
-    "type": "``null`` \\| `string`",
-    "description": "The URL of the product's thumbnail. It can possibly be `null`.",
+    "type": "`null` \\| `string`",
+    "description": "The URL of the product's thumbnail.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -1146,14 +1286,16 @@ A product's data.
     "description": "The title of the product.",
     "optional": false,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "type",
-    "type": "[`ProductTypeDTO`](ProductTypeDTO.mdx)[]",
-    "description": "The associated product type. It may only be available if the `type` relation is expanded.",
+    "type": "[ProductTypeDTO](ProductTypeDTO.mdx)[]",
+    "description": "The associated product type.",
     "optional": false,
     "defaultValue": "",
+    "expandable": true,
     "children": [
       {
         "name": "deleted_at",
@@ -1161,6 +1303,7 @@ A product's data.
         "description": "When the product type was deleted.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1169,14 +1312,16 @@ A product's data.
         "description": "The ID of the product type.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "metadata",
-        "type": "``null`` \\| Record<`string`, `unknown`\\>",
+        "type": "`null` \\| `Record<string, unknown>`",
         "description": "Holds custom data in key-value pairs.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1185,6 +1330,7 @@ A product's data.
         "description": "The value of the product type.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
@@ -1195,14 +1341,16 @@ A product's data.
     "description": "When the product was updated.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "variants",
-    "type": "[`ProductVariantDTO`](ProductVariantDTO.mdx)[]",
-    "description": "The associated product variants. It may only be available if the `variants` relation is expanded.",
+    "type": "[ProductVariantDTO](ProductVariantDTO.mdx)[]",
+    "description": "The associated product variants.",
     "optional": false,
     "defaultValue": "",
+    "expandable": true,
     "children": [
       {
         "name": "allow_backorder",
@@ -1210,14 +1358,16 @@ A product's data.
         "description": "Whether the product variant can be ordered when it's out of stock.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "barcode",
-        "type": "``null`` \\| `string`",
-        "description": "The barcode of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The barcode of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1226,6 +1376,7 @@ A product's data.
         "description": "When the product variant was created.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1234,30 +1385,34 @@ A product's data.
         "description": "When the product variant was deleted.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "ean",
-        "type": "``null`` \\| `string`",
-        "description": "The EAN of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The EAN of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "height",
-        "type": "``null`` \\| `number`",
-        "description": "The height of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `number`",
+        "description": "The height of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "hs_code",
-        "type": "``null`` \\| `string`",
-        "description": "The HS Code of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The HS Code of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1266,6 +1421,7 @@ A product's data.
         "description": "The ID of the product variant.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1274,14 +1430,16 @@ A product's data.
         "description": "The inventory quantiy of the product variant.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "length",
-        "type": "``null`` \\| `number`",
-        "description": "The length of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `number`",
+        "description": "The length of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1290,38 +1448,43 @@ A product's data.
         "description": "Whether the product variant's inventory should be managed by the core system.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "material",
-        "type": "``null`` \\| `string`",
-        "description": "The material of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The material of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "metadata",
-        "type": "``null`` \\| Record<`string`, `unknown`\\>",
+        "type": "`null` \\| `Record<string, unknown>`",
         "description": "Holds custom data in key-value pairs.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "mid_code",
-        "type": "``null`` \\| `string`",
-        "description": "The MID Code of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The MID Code of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "options",
-        "type": "[`ProductOptionValueDTO`](ProductOptionValueDTO.mdx)",
-        "description": "The associated product options. It may only be available if the `options` relation is expanded.",
+        "type": "[ProductOptionValueDTO](ProductOptionValueDTO.mdx)",
+        "description": "The associated product options.",
         "optional": false,
         "defaultValue": "",
+        "expandable": true,
         "children": [
           {
             "name": "deleted_at",
@@ -1329,6 +1492,7 @@ A product's data.
             "description": "When the product option value was deleted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -1337,22 +1501,25 @@ A product's data.
             "description": "The ID of the product option value.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "metadata",
-            "type": "``null`` \\| Record<`string`, `unknown`\\>",
+            "type": "`null` \\| `Record<string, unknown>`",
             "description": "Holds custom data in key-value pairs.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "option",
-            "type": "[`ProductOptionDTO`](ProductOptionDTO.mdx)",
-            "description": "The associated product option. It may only be available if the `option` relation is expanded.",
+            "type": "[ProductOptionDTO](ProductOptionDTO.mdx)",
+            "description": "The associated product option.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -1361,47 +1528,53 @@ A product's data.
             "description": "The value of the product option value.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "variant",
-            "type": "[`ProductVariantDTO`](ProductVariantDTO.mdx)",
-            "description": "The associated product variant. It may only be available if the `variant` relation is expanded.",
+            "type": "[ProductVariantDTO](ProductVariantDTO.mdx)",
+            "description": "The associated product variant.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           }
         ]
       },
       {
         "name": "origin_country",
-        "type": "``null`` \\| `string`",
-        "description": "The origin country of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The origin country of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "product",
-        "type": "[`ProductDTO`](ProductDTO.mdx)",
-        "description": "The associated product. It may only be available if the `product` relation is expanded.",
+        "type": "[ProductDTO](ProductDTO.mdx)",
+        "description": "The associated product.",
         "optional": false,
         "defaultValue": "",
+        "expandable": true,
         "children": [
           {
             "name": "categories",
-            "type": "``null`` \\| [`ProductCategoryDTO`](ProductCategoryDTO.mdx)[]",
-            "description": "The associated product categories. It may only be available if the `categories` relation is expanded.",
+            "type": "`null` \\| [ProductCategoryDTO](ProductCategoryDTO.mdx)[]",
+            "description": "The associated product categories.",
             "optional": true,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "collection",
-            "type": "[`ProductCollectionDTO`](ProductCollectionDTO.mdx)",
-            "description": "The associated product collection. It may only be available if the `collection` relation is expanded.",
+            "type": "[ProductCollectionDTO](ProductCollectionDTO.mdx)",
+            "description": "The associated product collection.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -1410,6 +1583,7 @@ A product's data.
             "description": "When the product was created.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -1418,14 +1592,16 @@ A product's data.
             "description": "When the product was deleted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "description",
-            "type": "``null`` \\| `string`",
-            "description": "The description of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The description of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -1434,38 +1610,43 @@ A product's data.
             "description": "Whether the product can be discounted.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "external_id",
-            "type": "``null`` \\| `string`",
+            "type": "`null` \\| `string`",
             "description": "The ID of the product in an external system. This is useful if you're integrating the product with a third-party service and want to maintain a reference to the ID in the integrated service.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "handle",
-            "type": "``null`` \\| `string`",
-            "description": "The handle of the product. The handle can be used to create slug URL paths. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The handle of the product. The handle can be used to create slug URL paths.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "height",
-            "type": "``null`` \\| `number`",
-            "description": "The height of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The height of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "hs_code",
-            "type": "``null`` \\| `string`",
-            "description": "The HS Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The HS Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -1474,14 +1655,16 @@ A product's data.
             "description": "The ID of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "images",
-            "type": "[`ProductImageDTO`](ProductImageDTO.mdx)[]",
-            "description": "The associated product images. It may only be available if the `images` relation is expanded.",
+            "type": "[ProductImageDTO](ProductImageDTO.mdx)[]",
+            "description": "The associated product images.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -1490,86 +1673,97 @@ A product's data.
             "description": "Whether the product is a gift card.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "length",
-            "type": "``null`` \\| `number`",
-            "description": "The length of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The length of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "material",
-            "type": "``null`` \\| `string`",
-            "description": "The material of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The material of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "metadata",
-            "type": "Record<`string`, `unknown`\\>",
-            "description": "",
+            "type": "`Record<string, unknown>`",
+            "description": "Holds custom data in key-value pairs.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "mid_code",
-            "type": "``null`` \\| `string`",
-            "description": "The MID Code of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The MID Code of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "options",
-            "type": "[`ProductOptionDTO`](ProductOptionDTO.mdx)[]",
-            "description": "The associated product options. It may only be available if the `options` relation is expanded.",
+            "type": "[ProductOptionDTO](ProductOptionDTO.mdx)[]",
+            "description": "The associated product options.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "origin_country",
-            "type": "``null`` \\| `string`",
-            "description": "The origin country of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The origin country of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "status",
-            "type": "[`ProductStatus`](../enums/ProductStatus.mdx)",
-            "description": "The status of the product. Its value can be one of the values of the enum [ProductStatus](../enums/ProductStatus.mdx).",
+            "type": "[ProductStatus](../enums/ProductStatus.mdx)",
+            "description": "The status of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "subtitle",
-            "type": "``null`` \\| `string`",
-            "description": "The subttle of the product. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The subttle of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "tags",
-            "type": "[`ProductTagDTO`](ProductTagDTO.mdx)[]",
-            "description": "The associated product tags. It may only be available if the `tags` relation is expanded.",
+            "type": "[ProductTagDTO](ProductTagDTO.mdx)[]",
+            "description": "The associated product tags.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "thumbnail",
-            "type": "``null`` \\| `string`",
-            "description": "The URL of the product's thumbnail. It can possibly be `null`.",
+            "type": "`null` \\| `string`",
+            "description": "The URL of the product's thumbnail.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
@@ -1578,14 +1772,16 @@ A product's data.
             "description": "The title of the product.",
             "optional": false,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "type",
-            "type": "[`ProductTypeDTO`](ProductTypeDTO.mdx)[]",
-            "description": "The associated product type. It may only be available if the `type` relation is expanded.",
+            "type": "[ProductTypeDTO](ProductTypeDTO.mdx)[]",
+            "description": "The associated product type.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
@@ -1594,30 +1790,34 @@ A product's data.
             "description": "When the product was updated.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "variants",
-            "type": "[`ProductVariantDTO`](ProductVariantDTO.mdx)[]",
-            "description": "The associated product variants. It may only be available if the `variants` relation is expanded.",
+            "type": "[ProductVariantDTO](ProductVariantDTO.mdx)[]",
+            "description": "The associated product variants.",
             "optional": false,
             "defaultValue": "",
+            "expandable": true,
             "children": []
           },
           {
             "name": "weight",
-            "type": "``null`` \\| `number`",
-            "description": "The weight of the product. It can possibly be `null`.",
+            "type": "`null` \\| `number`",
+            "description": "The weight of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           },
           {
             "name": "width",
-            "type": "``null`` \\| `number`",
-            "description": "",
+            "type": "`null` \\| `number`",
+            "description": "The width of the product.",
             "optional": true,
             "defaultValue": "",
+            "expandable": false,
             "children": []
           }
         ]
@@ -1628,14 +1828,16 @@ A product's data.
         "description": "The ID of the associated product.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "sku",
-        "type": "``null`` \\| `string`",
-        "description": "The SKU of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The SKU of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1644,14 +1846,16 @@ A product's data.
         "description": "The tile of the product variant.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "upc",
-        "type": "``null`` \\| `string`",
-        "description": "The UPC of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `string`",
+        "description": "The UPC of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
@@ -1660,48 +1864,54 @@ A product's data.
         "description": "When the product variant was updated.",
         "optional": false,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "variant_rank",
-        "type": "``null`` \\| `number`",
-        "description": "The ranking of the variant among other variants associated with the product. It can possibly be `null`.",
+        "type": "`null` \\| `number`",
+        "description": "he ranking of the variant among other variants associated with the product.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "weight",
-        "type": "``null`` \\| `number`",
-        "description": "The weight of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `number`",
+        "description": "The weight of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       },
       {
         "name": "width",
-        "type": "``null`` \\| `number`",
-        "description": "The width of the product variant. It can possibly be `null`.",
+        "type": "`null` \\| `number`",
+        "description": "The width of the product variant.",
         "optional": true,
         "defaultValue": "",
+        "expandable": false,
         "children": []
       }
     ]
   },
   {
     "name": "weight",
-    "type": "``null`` \\| `number`",
-    "description": "The weight of the product. It can possibly be `null`.",
+    "type": "`null` \\| `number`",
+    "description": "The weight of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "width",
-    "type": "``null`` \\| `number`",
-    "description": "",
+    "type": "`null` \\| `number`",
+    "description": "The width of the product.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   }
 ]} />

@@ -13,18 +13,20 @@ The filters to apply on retrieved products.
 <ParameterTypes parameters={[
   {
     "name": "$and",
-    "type": "([`FilterableProductProps`](FilterableProductProps.mdx) \\| [`BaseFilterable`](BaseFilterable.mdx)<[`FilterableProductProps`](FilterableProductProps.mdx)\\>)[]",
+    "type": "([FilterableProductProps](FilterableProductProps.mdx) \\| [BaseFilterable](BaseFilterable.mdx)&#60;[FilterableProductProps](FilterableProductProps.mdx)&#62;)[]",
     "description": "An array of filters to apply on the entity, where each item in the array is joined with an \"and\" condition.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "$or",
-    "type": "([`FilterableProductProps`](FilterableProductProps.mdx) \\| [`BaseFilterable`](BaseFilterable.mdx)<[`FilterableProductProps`](FilterableProductProps.mdx)\\>)[]",
+    "type": "([FilterableProductProps](FilterableProductProps.mdx) \\| [BaseFilterable](BaseFilterable.mdx)&#60;[FilterableProductProps](FilterableProductProps.mdx)&#62;)[]",
     "description": "An array of filters to apply on the entity, where each item in the array is joined with an \"or\" condition.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -33,46 +35,80 @@ The filters to apply on retrieved products.
     "description": "Filters on a product's categories.",
     "optional": true,
     "defaultValue": "",
-    "children": []
+    "expandable": false,
+    "children": [
+      {
+        "name": "id",
+        "type": "`string` \\| `string`[] \\| [OperatorMap](../types/OperatorMap.mdx)&#60;string&#62;",
+        "description": "IDs to filter categories by.",
+        "optional": true,
+        "defaultValue": "",
+        "expandable": false,
+        "children": []
+      },
+      {
+        "name": "is_active",
+        "type": "`boolean`",
+        "description": "Filter categories by whether they're active.",
+        "optional": true,
+        "defaultValue": "",
+        "expandable": false,
+        "children": []
+      },
+      {
+        "name": "is_internal",
+        "type": "`boolean`",
+        "description": "Filter categories by whether they're internal",
+        "optional": true,
+        "defaultValue": "",
+        "expandable": false,
+        "children": []
+      }
+    ]
   },
   {
     "name": "categories.id",
-    "type": "`string` \\| `string`[] \\| [`OperatorMap`](../types/OperatorMap.mdx)<`string`\\>",
-    "description": "",
+    "type": "`string` \\| `string`[] \\| [OperatorMap](../types/OperatorMap.mdx)&#60;string&#62;",
+    "description": "IDs to filter categories by.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "categories.is_active",
     "type": "`boolean`",
-    "description": "",
+    "description": "Filter categories by whether they're active.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "categories.is_internal",
     "type": "`boolean`",
-    "description": "",
+    "description": "Filter categories by whether they're internal",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "category_id",
-    "type": "`string` \\| `string`[] \\| [`OperatorMap`](../types/OperatorMap.mdx)<`string`\\>",
-    "description": "",
+    "type": "`string` \\| `string`[] \\| [OperatorMap](../types/OperatorMap.mdx)&#60;string&#62;",
+    "description": "Filter a product by the IDs of their associated categories.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
     "name": "collection_id",
-    "type": "`string` \\| `string`[] \\| [`OperatorMap`](../types/OperatorMap.mdx)<`string`\\>",
-    "description": "Filters a product by its associated collections.",
+    "type": "`string` \\| `string`[] \\| [OperatorMap](../types/OperatorMap.mdx)&#60;string&#62;",
+    "description": "Filters a product by the IDs of their associated collections.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -81,6 +117,7 @@ The filters to apply on retrieved products.
     "description": "The handles to filter products by.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -89,6 +126,7 @@ The filters to apply on retrieved products.
     "description": "The IDs to filter products by.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -97,6 +135,7 @@ The filters to apply on retrieved products.
     "description": "Search through the products' attributes, such as titles and descriptions, using this search term.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   },
   {
@@ -105,14 +144,26 @@ The filters to apply on retrieved products.
     "description": "Filters on a product's tags.",
     "optional": true,
     "defaultValue": "",
-    "children": []
+    "expandable": false,
+    "children": [
+      {
+        "name": "value",
+        "type": "`string`[]",
+        "description": "Values to filter product tags by.",
+        "optional": true,
+        "defaultValue": "",
+        "expandable": false,
+        "children": []
+      }
+    ]
   },
   {
     "name": "tags.value",
     "type": "`string`[]",
-    "description": "",
+    "description": "Values to filter product tags by.",
     "optional": true,
     "defaultValue": "",
+    "expandable": false,
     "children": []
   }
 ]} />

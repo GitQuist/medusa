@@ -5,8 +5,7 @@ import {
   SalesChannelService,
 } from "../../../../services"
 
-import IsolateProductDomainFeatureFlag from "../../../../loaders/feature-flags/isolate-product-domain"
-import { MedusaError, promiseAll } from "@medusajs/utils"
+import { MedusaError, MedusaV2Flag, promiseAll } from "@medusajs/utils"
 import { FindParams } from "../../../../types/common"
 import { defaultAdminProductRemoteQueryObject } from "./index"
 
@@ -30,7 +29,7 @@ import { defaultAdminProductRemoteQueryObject } from "./index"
  *       medusa.admin.products.retrieve(productId)
  *       .then(({ product }) => {
  *         console.log(product.id);
- *       });
+ *       })
  *   - lang: Shell
  *     label: cURL
  *     source: |
@@ -76,7 +75,7 @@ export default async (req, res) => {
   )
 
   let rawProduct
-  if (featureFlagRouter.isFeatureEnabled(IsolateProductDomainFeatureFlag.key)) {
+  if (featureFlagRouter.isFeatureEnabled(MedusaV2Flag.key)) {
     rawProduct = await getProductWithIsolatedProductModule(
       req,
       id,
@@ -119,7 +118,11 @@ export default async (req, res) => {
   res.json({ product })
 }
 
-async function getProductWithIsolatedProductModule(req, id, retrieveConfig) {
+export async function getProductWithIsolatedProductModule(
+  req,
+  id,
+  retrieveConfig
+) {
   // TODO: Add support for fields/expands
   const remoteQuery = req.scope.resolve("remoteQuery")
 

@@ -1,5 +1,25 @@
 # @medusajs/types
 
+## 1.11.7
+
+### Patch Changes
+
+- [#5630](https://github.com/medusajs/medusa/pull/5630) [`61aef4aaa`](https://github.com/medusajs/medusa/commit/61aef4aaa7295f178c61c9a891f03a0a48b15c81) Thanks [@shahednasser](https://github.com/shahednasser)! - fix(types): Fix types used in the IInventoryService
+
+- [#5498](https://github.com/medusajs/medusa/pull/5498) [`1772e80ed`](https://github.com/medusajs/medusa/commit/1772e80ed1ecab27741be80204f5df92eaa3f2b4) Thanks [@riqwan](https://github.com/riqwan)! - feat(pricing,types): price list API + price calculations with price lists
+
+## 1.11.6
+
+### Patch Changes
+
+- [#5582](https://github.com/medusajs/medusa/pull/5582) [`91615f9c4`](https://github.com/medusajs/medusa/commit/91615f9c459a2d8cb842561c5edb335680d30298) Thanks [@shahednasser](https://github.com/shahednasser)! - fix(@medusajs/client-types): Fix types and TSDocs
+  fix(medusa-react): Fix response type of Publishable API Key's list sales channels.
+  fix(@medusajs/medusa-js): Fix incorrect parameter and response types.
+  fix(@medusajs/medusa): Fix incorrect types and add TSDocs
+  fix(@medusajs/types): Fix incorrect types and add TSDocs
+
+- [#5496](https://github.com/medusajs/medusa/pull/5496) [`154c9b43b`](https://github.com/medusajs/medusa/commit/154c9b43bde1fdff562aba9da8a79af2660b29b3) Thanks [@adrien2p](https://github.com/adrien2p)! - feat(medusa, modules-sdk, types, utils): Re work modules loading and remove legacy functions
+
 ## 1.11.5
 
 ### Patch Changes

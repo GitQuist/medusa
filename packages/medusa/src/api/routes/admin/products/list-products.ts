@@ -7,14 +7,17 @@ import {
   SalesChannelService,
 } from "../../../../services"
 
-import { FilterableProductProps } from "../../../../types/product"
-import { IInventoryService } from "@medusajs/types"
-import IsolateProductDomainFeatureFlag from "../../../../loaders/feature-flags/isolate-product-domain"
-import { PricedProduct } from "../../../../types/pricing"
-import { Product } from "../../../../models"
+import {
+  IInventoryService,
+  IPricingModuleService,
+  IProductModuleService,
+} from "@medusajs/types"
+import { MedusaV2Flag, promiseAll } from "@medusajs/utils"
 import { Type } from "class-transformer"
+import { Product } from "../../../../models"
+import { PricedProduct } from "../../../../types/pricing"
+import { FilterableProductProps } from "../../../../types/product"
 import { defaultAdminProductRemoteQueryObject } from "./index"
-import { promiseAll } from "@medusajs/utils"
 
 /**
  * @oas [get] /admin/products
@@ -199,7 +202,7 @@ import { promiseAll } from "@medusajs/utils"
  *       medusa.admin.products.list()
  *       .then(({ products, limit, offset, count }) => {
  *         console.log(products.length);
- *       });
+ *       })
  *   - lang: Shell
  *     label: cURL
  *     source: |
@@ -248,7 +251,7 @@ export default async (req, res) => {
   let rawProducts
   let count
 
-  if (featureFlagRouter.isFeatureEnabled(IsolateProductDomainFeatureFlag.key)) {
+  if (featureFlagRouter.isFeatureEnabled(MedusaV2Flag.key)) {
     const [products, count_] =
       await listAndCountProductWithIsolatedProductModule(
         req,
@@ -302,7 +305,53 @@ export default async (req, res) => {
   })
 }
 
-async function listAndCountProductWithIsolatedProductModule(
+async function getVariantsFromPriceList(req, priceListId) {
+  const remoteQuery = req.scope.resolve("remoteQuery")
+  const pricingModuleService: IPricingModuleService = req.scope.resolve(
+    "pricingModuleService"
+  )
+  const productModuleService: IProductModuleService = req.scope.resolve(
+    "productModuleService"
+  )
+
+  const [priceList] = await pricingModuleService.listPriceLists(
+    { id: [priceListId] },
+    {
+      relations: [
+        "price_set_money_amounts",
+        "price_set_money_amounts.price_set",
+      ],
+      select: ["price_set_money_amounts.price_set.id"],
+    }
+  )
+
+  const priceSetIds = priceList.price_set_money_amounts?.map(
+    (psma) => psma.price_set?.id
+  )
+
+  const query = {
+    product_variant_price_set: {
+      __args: {
+        price_set_id: priceSetIds,
+      },
+      fields: ["variant_id", "price_set_id"],
+    },
+  }
+
+  const variantPriceSets = await remoteQuery(query)
+  const variantIds = variantPriceSets.map((vps) => vps.variant_id)
+
+  return await productModuleService.listVariants(
+    {
+      id: variantIds,
+    },
+    {
+      select: ["product_id"],
+    }
+  )
+}
+
+export async function listAndCountProductWithIsolatedProductModule(
   req,
   filterableFields,
   listConfig
@@ -310,6 +359,7 @@ async function listAndCountProductWithIsolatedProductModule(
   // TODO: Add support for fields/expands
 
   const remoteQuery = req.scope.resolve("remoteQuery")
+  const featureFlagRouter = req.scope.resolve("featureFlagRouter")
 
   const productIdsFilter: Set<string> = new Set()
   const variantIdsFilter: Set<string> = new Set()
@@ -353,22 +403,28 @@ async function listAndCountProductWithIsolatedProductModule(
   delete filterableFields.price_list_id
 
   if (priceListId) {
-    // TODO: it is working but validate the behaviour.
-    // e.g pricing context properly set.
-    // At the moment filtering by price list but not having any customer id or
-    // include discount forces the query to filter with price list id is null
-    const priceListService = req.scope.resolve(
-      "priceListService"
-    ) as PriceListService
-    promises.push(
-      priceListService
-        .listPriceListsVariantIdsMap(priceListId)
-        .then((priceListVariantIdsMap) => {
-          priceListVariantIdsMap[priceListId].map((variantId) =>
-            variantIdsFilter.add(variantId)
-          )
-        })
-    )
+    if (featureFlagRouter.isFeatureEnabled(MedusaV2Flag.key)) {
+      const variants = await getVariantsFromPriceList(req, priceListId)
+
+      variants.forEach((pv) => variantIdsFilter.add(pv.id))
+    } else {
+      // TODO: it is working but validate the behaviour.
+      // e.g pricing context properly set.
+      // At the moment filtering by price list but not having any customer id or
+      // include discount forces the query to filter with price list id is null
+      const priceListService = req.scope.resolve(
+        "priceListService"
+      ) as PriceListService
+      promises.push(
+        priceListService
+          .listPriceListsVariantIdsMap(priceListId)
+          .then((priceListVariantIdsMap) => {
+            priceListVariantIdsMap[priceListId].map((variantId) =>
+              variantIdsFilter.add(variantId)
+            )
+          })
+      )
+    }
   }
 
   const discountConditionId = filterableFields.discount_condition_id
@@ -414,25 +470,45 @@ async function listAndCountProductWithIsolatedProductModule(
   return [products, count]
 }
 
+/**
+ * Parameters used to filter and configure the pagination of the retrieved products.
+ */
 export class AdminGetProductsParams extends FilterableProductProps {
+  /**
+   * {@inheritDoc FindPaginationParams.offset}
+   * @defaultValue 0
+   */
   @IsNumber()
   @IsOptional()
   @Type(() => Number)
   offset?: number = 0
 
+  /**
+   * {@inheritDoc FindPaginationParams.limit}
+   * @defaultValue 50
+   */
   @IsNumber()
   @IsOptional()
   @Type(() => Number)
   limit?: number = 50
 
+  /**
+   * {@inheritDoc FindParams.expand}
+   */
   @IsString()
   @IsOptional()
   expand?: string
 
+  /**
+   * {@inheritDoc FindParams.fields}
+   */
   @IsString()
   @IsOptional()
   fields?: string
 
+  /**
+   * The field to sort the data by. By default, the sort order is ascending. To change the order to descending, prefix the field name with `-`.
+   */
   @IsString()
   @IsOptional()
   order?: string

@@ -1,5 +1,27 @@
 # @medusajs/workflows
 
+## 0.3.0
+
+### Minor Changes
+
+- [#5603](https://github.com/medusajs/medusa/pull/5603) [`cedab5833`](https://github.com/medusajs/medusa/commit/cedab583395275444001f0268e4b9ccab9b2b262) Thanks [@riqwan](https://github.com/riqwan)! - feat(workflows,medusa,utils): add medusa v2 feature flag
+
+### Patch Changes
+
+- Updated dependencies [[`cedab5833`](https://github.com/medusajs/medusa/commit/cedab583395275444001f0268e4b9ccab9b2b262)]:
+  - @medusajs/utils@1.11.0
+
+## 0.2.5
+
+### Patch Changes
+
+- [`c39bf69a5`](https://github.com/medusajs/medusa/commit/c39bf69a5e5cae75d7fa12aa6022b10903557a32) Thanks [@olivermrbl](https://github.com/olivermrbl)! - chore: Add missing version bumps
+
+- Updated dependencies [[`c39bf69a5`](https://github.com/medusajs/medusa/commit/c39bf69a5e5cae75d7fa12aa6022b10903557a32), [`154c9b43b`](https://github.com/medusajs/medusa/commit/154c9b43bde1fdff562aba9da8a79af2660b29b3)]:
+  - @medusajs/modules-sdk@1.12.3
+  - @medusajs/orchestration@0.4.4
+  - @medusajs/utils@1.10.5
+
 ## 0.2.4
 
 ### Patch Changes

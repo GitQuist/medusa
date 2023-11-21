@@ -1,5 +1,28 @@
 # @medusajs/product
 
+## 0.3.4
+
+### Patch Changes
+
+- [#5643](https://github.com/medusajs/medusa/pull/5643) [`c4722715c`](https://github.com/medusajs/medusa/commit/c4722715cd103e88ff8a3a3856d8138f211478ca) Thanks [@riqwan](https://github.com/riqwan)! - fix(product): when running migrations, prevent exploding on isolated case
+
+- Updated dependencies [[`61aef4aaa`](https://github.com/medusajs/medusa/commit/61aef4aaa7295f178c61c9a891f03a0a48b15c81), [`1772e80ed`](https://github.com/medusajs/medusa/commit/1772e80ed1ecab27741be80204f5df92eaa3f2b4), [`cedab5833`](https://github.com/medusajs/medusa/commit/cedab583395275444001f0268e4b9ccab9b2b262)]:
+  - @medusajs/types@1.11.7
+  - @medusajs/utils@1.11.0
+
+## 0.3.3
+
+### Patch Changes
+
+- [#5533](https://github.com/medusajs/medusa/pull/5533) [`f88d75b0a`](https://github.com/medusajs/medusa/commit/f88d75b0a7621ff9788a24775fa53d4c2987b52d) Thanks [@adrien2p](https://github.com/adrien2p)! - feat(product, pricing, utils): Transaction issues and reference issues + refactoring
+
+- [`c39bf69a5`](https://github.com/medusajs/medusa/commit/c39bf69a5e5cae75d7fa12aa6022b10903557a32) Thanks [@olivermrbl](https://github.com/olivermrbl)! - chore: Add missing version bumps
+
+- Updated dependencies [[`91615f9c4`](https://github.com/medusajs/medusa/commit/91615f9c459a2d8cb842561c5edb335680d30298), [`c39bf69a5`](https://github.com/medusajs/medusa/commit/c39bf69a5e5cae75d7fa12aa6022b10903557a32), [`154c9b43b`](https://github.com/medusajs/medusa/commit/154c9b43bde1fdff562aba9da8a79af2660b29b3)]:
+  - @medusajs/types@1.11.6
+  - @medusajs/modules-sdk@1.12.3
+  - @medusajs/utils@1.10.5
+
 ## 0.3.2
 
 ### Patch Changes

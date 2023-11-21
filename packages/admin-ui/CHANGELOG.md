@@ -1,5 +1,34 @@
 # @medusajs/admin-ui
 
+## 2.1.8
+
+### Patch Changes
+
+- [#5479](https://github.com/medusajs/medusa/pull/5479) [`3f016d871`](https://github.com/medusajs/medusa/commit/3f016d871a091a0a72c2eaec2f4ff74e0ad5b426) Thanks [@VariableVic](https://github.com/VariableVic)! - fix: sort supportedLanguages array
+
+- [#5641](https://github.com/medusajs/medusa/pull/5641) [`c08240df3`](https://github.com/medusajs/medusa/commit/c08240df3f2fe0c4c5c35af471f68a2187f8e582) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-ui): Resolves an issue where decimal numbers would be stripped when the locale uses commas as the decimal separator
+
+- Updated dependencies [[`a67a8e7e9`](https://github.com/medusajs/medusa/commit/a67a8e7e90f35636c8d99858fc5b19358df4c174)]:
+  - @medusajs/ui@2.2.2
+
+## 2.1.7
+
+### Patch Changes
+
+- [#5566](https://github.com/medusajs/medusa/pull/5566) [`d7e188722`](https://github.com/medusajs/medusa/commit/d7e1887221467929175e7c69b3064dc7e6c967d8) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-ui): Fixes an issue where using the bulk editor with comma as the decimal separator would convert the input to NaN
+
+- [#5596](https://github.com/medusajs/medusa/pull/5596) [`e3f1da92d`](https://github.com/medusajs/medusa/commit/e3f1da92db1a5bb07ae8d79a90f0d1d04f9bfee3) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-ui,ui): Align @types/react versions
+
+- [#5530](https://github.com/medusajs/medusa/pull/5530) [`8e48be58e`](https://github.com/medusajs/medusa/commit/8e48be58efe9bfffd0f3f5af098ef2a4cefc4b2d) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-ui): Fixes an issue where regions were not scrollable in tax settings view, also adds a IntersectionObserver to ensure that we load all regions as the user scrolls. The current implementation was capped at loading 20 regions.
+
+- [#5535](https://github.com/medusajs/medusa/pull/5535) [`f7e982988`](https://github.com/medusajs/medusa/commit/f7e98298815b0ffb4ce1b6d2d2e1f26ca5e01049) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-ui): Fix issue were Price List domain would fetch all products on initial load"
+
+- [#5548](https://github.com/medusajs/medusa/pull/5548) [`b4e8adfcf`](https://github.com/medusajs/medusa/commit/b4e8adfcf9c71f97a2a0b4ad8f0632e213fe7123) Thanks [@rick-lam](https://github.com/rick-lam)! - fix(admin-ui): Admin UI: Invalid Request Header
+
+- Updated dependencies [[`91615f9c4`](https://github.com/medusajs/medusa/commit/91615f9c459a2d8cb842561c5edb335680d30298), [`e3f1da92d`](https://github.com/medusajs/medusa/commit/e3f1da92db1a5bb07ae8d79a90f0d1d04f9bfee3)]:
+  - medusa-react@9.0.11
+  - @medusajs/ui@2.2.1
+
 ## 2.1.6
 
 ### Patch Changes
